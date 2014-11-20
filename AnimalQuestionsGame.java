@@ -23,17 +23,18 @@ public class AnimalQuestionsGame
         mainscan = new Scanner(System.in);
         
         String l = "";
+        String add = "";
+        while ((add = inputStream.readLine()) != null) l += (add + "  ");
         Scanner scan = new Scanner(l).useDelimiter("  ");
-        while ((l = inputStream.readLine()) != null) {
+        //System.out.println(l);
+        while (scan.hasNext()) {
             String n = scan.next();
             double i = Double.parseDouble(scan.next());
-            System.out.println(n + ": " + i);
+            //System.out.println(n + ": " + i);
             map.put(i,n);
             array.add(i);
         }
         inputStream.close();
-        
-        for (Double dee:array) System.out.println(dee);
             
         int low = 0; int high = array.size()-1; int mid = (low+high)/2;
         array = BinarySort.sortDouble(array);
@@ -56,21 +57,23 @@ public class AnimalQuestionsGame
                 if (mid == low) break;
                 high = mid;
             }
-            if (i == 2) high--;
-            if (i == -2) low++;
+            if (i == 2) low++;
+            if (i == -2) high--;
             mid = (low+high)/2;
             if (low > high) break;
         }
         if (answered) System.out.println("Ha! I knew it! It's a " + map.get(array.get(mid)) + "!");
         else {
             System.out.print("Oh man! I have no idea what sort of animal this was! Can you tell me?    ");
+            mainscan.useDelimiter("\n");
             String animal = mainscan.next();
             System.out.print("Oh, is that what it is? Well, can you tell me how much this animal usually weighs (in kilograms)?    ");
             double animalWeight = 0;
             boolean numberGot = false;
             while(!numberGot) {
                 try {
-                    animalWeight = Double.parseDouble(mainscan.next());
+                    String weight = mainscan.next();
+                    animalWeight = Double.parseDouble(weight);
                     numberGot = true;
                 } catch (NumberFormatException e) {
                     System.out.print("I'm sorry, I don't understand. I need you to tell me the weight of this animal, in kilograms.    ");
@@ -79,7 +82,7 @@ public class AnimalQuestionsGame
                 }
             }
             System.out.println("Ah, so this animal is a " + animal +", and it weighs " + animalWeight + " kilograms!");
-            outputStream.println(animal + "  " + animalWeight);
+            outputStream.println(animal + "  " + animalWeight + "\n");
         }
         outputStream.close();
         System.out.println("That was a fun game! I hope you'll play again some time!");
