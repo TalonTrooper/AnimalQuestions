@@ -1,4 +1,6 @@
 thing  10
 little thing  .5
-big thing 150
-huge thing 250
+big thing  150
+huge thing  250
+tiny thing  0.05
+teensy thing  0.01
