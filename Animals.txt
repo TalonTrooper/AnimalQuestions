@@ -1,0 +1,4 @@
+thing  10
+little thing  .5
+big thing 150
+huge thing 250
