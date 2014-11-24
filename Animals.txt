@@ -1,6 +1,9 @@
-thing  10
-little thing  .5
-big thing  150
-huge thing  250
-tiny thing  0.05
-teensy thing  0.01
+brown rat  .350
+asian elephant  2720
+african bush elephant  5500
+african forest elephant  2700
+white rhinoceros  2150
+black rhinoceros  1200
+muskrat  1.3
+blue whale 160000
+Orca  6000
